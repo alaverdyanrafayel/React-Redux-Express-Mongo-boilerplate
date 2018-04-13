@@ -1,0 +1,22 @@
+// @flow
+
+import {
+    host,
+    apiUrl,
+} from 'helpers/config';
+
+const urls = {
+    development: {
+        hostname: host,
+        httpsEnabled: false,
+        apiUrl: apiUrl,
+    },
+    production: {
+        hostname: host,
+        httpsEnabled: true,
+        env: 'production',
+        apiUrl: apiUrl
+    }
+};
+
+export default urls[process.env.NODE_ENV || 'development'];
